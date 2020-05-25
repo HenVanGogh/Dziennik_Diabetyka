@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+
+import datetime
 import unittest
 import sys
 sys.path.append("../include")
@@ -17,7 +20,14 @@ class MyTestCase(unittest.TestCase):
 
     def test_pojedynczy_wpis(self):
         wpis_1 = Wpis_test(80.1, 1)
-        self.assertEqual(str(wpis_1), "| data: 2020-05-20 | pomiar nr 1 | poziom cukru: 80.1 | cukier w normie |\n")
+        self.assertEqual(wpis_1.poziom_cukru, 80.1)
+        self.assertEqual(wpis_1.numer_pomiaru, 1)
+        self.assertEqual(wpis_1.data, str(datetime.datetime.today()).split()[0])
+        self.assertEqual(wpis_1.czy_w_normie(), "cukier w normie")
+        self.assertEqual(str(wpis_1), "| data: " + wpis_1.data +
+                         " | pomiar nr " + str(wpis_1.numer_pomiaru) +
+                         " | poziom cukru: " + str(wpis_1.poziom_cukru) +
+                         " | " + wpis_1.czy_w_normie() + " |\n")
 
 
 if __name__ == '__main__':
