@@ -1,0 +1,8 @@
+| data: 26.05.2020 | pomiar nr 1 | poziom cukru: 80 | cukier w normie |
+| data: 27.05.2020 | pomiar nr 2 | poziom cukru: 85 | cukier w normie |
+| data: 28.05.2020 | pomiar nr 3 | poziom cukru: 83 | cukier w normie |
+| data: 29.05.2020 | pomiar nr 4 | poziom cukru: 81 | cukier w normie |
+| data: 30.05.2020 | pomiar nr 5 | poziom cukru: 82 | cukier w normie |
+| data: 31.05.2020 | pomiar nr 6 | poziom cukru: 83 | cukier w normie |
+| data: 01.06.2020 | pomiar nr 7 | poziom cukru: 80 | cukier w normie |
+| data: 02.06.2020 | pomiar nr 8 | poziom cukru: 80 | cukier w normie |

@@ -4,15 +4,28 @@
 from matplotlib import pyplot as plt
 from matplotlib import style
 
-style.use("bmh")
-x = [5,8,10]
-y = [12,16,6]
+def graph_of_last_30_measurments():
 
-plt.plot(x, y, 'g', label="line", linewidth=5)
+    style.use("bmh")
 
-plt.title("Wykres")
-plt.ylabel("Y axis")
-plt.xlabel("X axis")
-plt.legend()
-plt.grid(True, color='k')
-plt.show()
+    x = [i for i in range(1, 9)]
+    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
+    y = []
+    z = f.readlines()
+    c1 = [70 for i in range(len(z))]
+    c2 = [99 for i in range(len(z))]
+    for line in range(len(z)-1, -1, -1):
+        a = z[line]
+        y.append(int(a[49]+a[50]))
+
+    y.reverse()
+    plt.plot(x, y, 'g',  x, c1, '--', x, c2, '--',  linewidth=5)
+    plt.title("Wykres 30 pomiarów")
+    plt.ylabel("Poziom cukru [mm/dl]")
+    plt.xlabel("Pomiar")
+    plt.legend(["Wykres pomiarów cukru","Wartość minimalna","Wartość maksymalna"], loc='upper right')
+    plt.grid(True, color='k')
+    plt.show()
+    f.close()
+
+graph_of_last_30_measurments()
