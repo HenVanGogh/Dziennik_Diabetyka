@@ -55,4 +55,19 @@ def average_of_50_measurements():
     liczba = len(y)
     f.close()
     return suma/liczba
+
+def average_of_100_measurements():
+    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
+    z = f.readlines()
+    y = []
+    for line in range(len(z)-1, -1, -1):
+        a = z[line]
+        y.append(int(a[49]+a[50]))
+    for i in range(len(z)-100):
+        del y[i+100]
+    suma = sum(y)
+    liczba = len(y)
+    f.close()
+    return suma/liczba
+
 graph_of_last_30_measurments()
