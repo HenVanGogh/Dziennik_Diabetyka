@@ -70,4 +70,17 @@ def average_of_100_measurements():
     f.close()
     return suma/liczba
 
+def average_of_chosen_month_and_year(data : str):
+    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
+    z = f.readlines()
+    y = []
+    for line in range(len(z)):
+        a = z[line]
+        if data == a[11:18]:
+            y.append(int(a[49] + a[50]))
+    suma = sum(y)
+    liczba = len(y)
+    f.close()
+    return suma / liczba
+
 graph_of_last_30_measurments()
