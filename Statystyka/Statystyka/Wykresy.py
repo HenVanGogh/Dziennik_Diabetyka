@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import math
 from matplotlib import pyplot as plt
 from matplotlib import style
 
@@ -9,7 +10,7 @@ def graph_of_last_30_measurments():
     style.use("bmh")
 
     x = [i for i in range(1, 9)]
-    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     y = []
     z = f.readlines()
     c1 = [70 for i in range(len(z))]
@@ -84,7 +85,7 @@ def average_of_chosen_month_and_year(data : str):
     return suma / liczba
 
 def standard_deviation_of_30_last_measurements():
-    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     z = f.readlines()
     y = []
     for line in range(len(z) - 1, -1, -1):
@@ -92,6 +93,25 @@ def standard_deviation_of_30_last_measurements():
         y.append(int(a[49] + a[50]))
     for i in range(len(z) - 30):
         del y[i + 30]
+    srednia = sum(y)/len(y)
+    suma_roznic = 0
+    for elem in y:
+         suma_roznic = suma_roznic + (elem - srednia)**2
+    wynik = round(math.sqrt(suma_roznic/len(y)), 2)
+    return wynik
+
+def standard_deviation_of_50_last_measurements():
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    z = f.readlines()
+    y = []
+    w = []
+    for line in range(len(z) - 1, -1, -1):
+        a = z[line]
+        w.append(a.split(','))
+        y.append(int(w[0][3][15] + w[0][3][16] + w[0][3][17]))
+        del w[0]
+    for i in range(len(z) - 50):
+        del y[i + 50]
     srednia = sum(y)/len(y)
     suma_roznic = 0
     for elem in y:
