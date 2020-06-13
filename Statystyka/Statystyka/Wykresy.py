@@ -8,115 +8,137 @@ from matplotlib import style
 def graph_of_last_30_measurments():
 
     style.use("bmh")
-
-    x = [i for i in range(1, 9)]
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
-    y = []
-    z = f.readlines()
-    c1 = [70 for i in range(len(z))]
-    c2 = [99 for i in range(len(z))]
-    for line in range(len(z)-1, -1, -1):
-        a = z[line]
-        y.append(int(a[49]+a[50]))
-
-    y.reverse()
-    plt.plot(x, y, 'g',  x, c1, '--', x, c2, '--',  linewidth=5)
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")  # otwarcie pliku do odczytu
+    wiersze = f.readlines()  # lista zawierająca kolejne wiersze z naszej bazy
+    x = [i for i in range(1, len(wiersze) + 1)]  # lista kolejnych liczb całkowitych od 1 do ilości wierszy w bazie
+    wartosci_pom = []  # lista do której będą trafiały wartości poziomu cukru
+    wyp = []  # lista pomocnicza do wypakowania wpisu
+    # listy pomocnicze c1,c2 będą wskazywały min. i max. dopuszczalny poziom cukru w normie na powstałym wykresie
+    c1 = [70 for i in range(len(wiersze))]
+    c2 = [99 for i in range(len(wiersze))]
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]  # wypakowanie danego wiersza do zmiennej a
+        wyp.append(pom.split(','))  # podział ze względu na przecinki w wpisie i wpisanie do listy pomocniczej wyp
+        wartosci_pom.append(
+            int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))  # sklejenie odpowiednich danych wraz z konwersją na int
+        del wyp[0]
+    for i in range(len(wiersze) - 30):
+        del wartosci_pom[i + 30]  # usunięcie niepotrzebnych pomiarów
+    wartosci_pom.reverse()
+    # narysowanie wykresu z wykorzystaniem matplotliba
+    plt.plot(x, wartosci_pom, 'g', x, c1, '--', x, c2, '--', linewidth=5)
     plt.title("Wykres 30 pomiarów")
     plt.ylabel("Poziom cukru [mm/dl]")
     plt.xlabel("Pomiar")
-    plt.legend(["Wykres pomiarów cukru","Wartość minimalna","Wartość maksymalna"], loc='upper right')
+    plt.legend(["Wykres pomiarów cukru", "Min. dopuszczalna wartość cukru", "Max. dopuszczalna wartość cukru"], loc='upper right')
     plt.grid(True, color='k')
     plt.show()
     f.close()
 
 def average_of_30_measurements():
-    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
-    z = f.readlines()
-    y = []
-    for line in range(len(z)-1, -1, -1):
-        a = z[line]
-        y.append(int(a[49]+a[50]))
-    for i in range(len(z)-30):
-        del y[i+30]
-    suma = sum(y)
-    liczba = len(y)
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")  # otwarcie pliku do odczytu
+    wiersze = f.readlines()  # lista zawierająca kolejne wiersze z naszej bazy
+    wartosci_pom = []  # lista do której będą trafiały wartości poziomu cukru
+    wyp = []  # lista pomocnicza do wypakowania wpisu
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]  # wypakowanie danego wiersza do zmiennej pomocniczej a
+        wyp.append(pom.split(','))  # podział ze względu na przecinki w wpisie i wpisanie do listy pomocniczej wyp
+        wartosci_pom.append(
+            int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))  # sklejenie odpowiednich danych wraz z konwersją na int
+        del wyp[0]
+    for i in range(len(wiersze) - 30):
+        del wartosci_pom[i + 30]  # usunięcie niepotrzebnych pomiarów
+    suma = sum(wartosci_pom)
+    ilosc = len(wartosci_pom)
     f.close()
-    return suma/liczba
+    return suma / ilosc
 
 def average_of_50_measurements():
-    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
-    z = f.readlines()
-    y = []
-    for line in range(len(z)-1, -1, -1):
-        a = z[line]
-        y.append(int(a[49]+a[50]))
-    for i in range(len(z)-50):
-        del y[i+50]
-    suma = sum(y)
-    liczba = len(y)
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    for i in range(len(wiersze) - 50):
+        del wartosci_pom[i + 50]
+    suma = sum(wartosci_pom)
+    ilosc = len(wartosci_pom)
     f.close()
-    return suma/liczba
+    return suma / ilosc
 
 def average_of_100_measurements():
-    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
-    z = f.readlines()
-    y = []
-    for line in range(len(z)-1, -1, -1):
-        a = z[line]
-        y.append(int(a[49]+a[50]))
-    for i in range(len(z)-100):
-        del y[i+100]
-    suma = sum(y)
-    liczba = len(y)
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    for i in range(len(wiersze) - 100):
+        del wartosci_pom[i + 100]
+    suma = sum(wartosci_pom)
+    ilosc = len(wartosci_pom)
     f.close()
-    return suma/liczba
+    return suma / ilosc
 
 def average_of_chosen_month_and_year(data : str):
-    f = open('pomocniczy.txt', 'r', encoding=" utf -8")
-    z = f.readlines()
-    y = []
-    for line in range(len(z)):
-        a = z[line]
-        if data == a[11:18]:
-            y.append(int(a[49] + a[50]))
-    suma = sum(y)
-    liczba = len(y)
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze)):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        if data == wyp[0][1][10:18]:  # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+            wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    suma = sum(wartosci_pom)
+    ilosc = len(wartosci_pom)
     f.close()
-    return suma / liczba
+    return suma / ilosc
 
 def standard_deviation_of_30_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
-    z = f.readlines()
-    y = []
-    for line in range(len(z) - 1, -1, -1):
-        a = z[line]
-        y.append(int(a[49] + a[50]))
-    for i in range(len(z) - 30):
-        del y[i + 30]
-    srednia = sum(y)/len(y)
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    for i in range(len(wiersze) - 30):
+        del wartosci_pom[i + 30]
+    srednia = sum(wartosci_pom) / len(wartosci_pom)
     suma_roznic = 0
-    for elem in y:
-         suma_roznic = suma_roznic + (elem - srednia)**2
-    wynik = round(math.sqrt(suma_roznic/len(y)), 2)
-    return wynik
+    for elem in wartosci_pom:
+        suma_roznic = suma_roznic + (elem - srednia) ** 2  # wyznaczenie sumy kwadratów różnic danego pomiaru od wartości średniej
+    odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)),  2)  # obliczenie pierwiastka z obliczonej powyżej sumy i zaokrąglenie jej do 2 miejsc po przecinku
+    return odchylenie_stand
 
 def standard_deviation_of_50_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
-    z = f.readlines()
-    y = []
-    w = []
-    for line in range(len(z) - 1, -1, -1):
-        a = z[line]
-        w.append(a.split(','))
-        y.append(int(w[0][3][15] + w[0][3][16] + w[0][3][17]))
-        del w[0]
-    for i in range(len(z) - 50):
-        del y[i + 50]
-    srednia = sum(y)/len(y)
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    for i in range(len(wiersze) - 50):
+        del wartosci_pom[i + 50]
+    srednia = sum(wartosci_pom) / len(wartosci_pom)
     suma_roznic = 0
-    for elem in y:
-         suma_roznic = suma_roznic + (elem - srednia)**2
-    wynik = round(math.sqrt(suma_roznic/len(y)), 2)
-    return wynik
+    for elem in wartosci_pom:
+        suma_roznic = suma_roznic + (elem - srednia) ** 2
+    odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)), 2)
+    return odchylenie_stand
 
 graph_of_last_30_measurments()
