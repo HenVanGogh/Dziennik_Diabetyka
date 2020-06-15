@@ -87,6 +87,22 @@ def average_of_100_measurements():
     f.close()
     return suma / ilosc
 
+def average_of_chosen_day_and_month_and_year(data : str):
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze)):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        if data == wyp[0][1][7:17]: # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+            wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    suma = sum(wartosci_pom)
+    ilosc = len(wartosci_pom)
+    f.close()
+    return suma / liczba
+
 def average_of_chosen_month_and_year(data : str):
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
