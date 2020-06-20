@@ -157,4 +157,23 @@ def standard_deviation_of_50_last_measurements():
     odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)), 2)
     return odchylenie_stand
 
+def standard_deviation_of_100_last_measurements():
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze) - 1, -1, -1):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        del wyp[0]
+    for i in range(len(wiersze) - 100):
+        del wartosci_pom[i + 100]
+    srednia = sum(wartosci_pom)/len(wartosci_pom)
+    suma_roznic = 0
+    for elem in wartosci_pom:
+         suma_roznic = suma_roznic + (elem - srednia)**2
+    odchylenie_stand = round(math.sqrt(suma_roznic/len(wartosci_pom)), 2)
+    return odchylenie_stand
+
 graph_of_last_30_measurments()
