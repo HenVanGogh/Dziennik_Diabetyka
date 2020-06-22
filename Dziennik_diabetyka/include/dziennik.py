@@ -19,7 +19,7 @@ class Wpis:
             return "za wysoki cukier"
 
     def __str__(self) -> str:
-        reprezentacja_wpisu = "data: " + self.data + " , pomiar nr " + str(self.numer_pomiaru) + \
-                              " , poziom cukru: " + str(self.poziom_cukru) + " , " \
+        reprezentacja_wpisu = "data: " + self.data + ", pomiar nr " + str(self.numer_pomiaru) + \
+                              ", poziom cukru: " + str(self.poziom_cukru) + ", " \
                               + self.czy_w_normie() + "\n"
         return reprezentacja_wpisu

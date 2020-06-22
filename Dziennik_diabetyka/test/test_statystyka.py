@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import unittest
+import sys
+sys.path.append("../include")
 from Wykresy import average_of_30_measurements, average_of_chosen_day_and_month_and_year, \
     average_of_chosen_month_and_year, standard_deviation_of_30_last_measurements
 

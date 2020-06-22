@@ -17,10 +17,10 @@ False
 Żona do męża:
 - Wybieraj, piwo, albo ja!
 - Ile tego piwa?;
-True
+False
 Jak nazywają się dwa takie same drzewa?
 - klony;
-True
+False
 Co mówi kabel do kabla?
 - bądźmy w kontakcie;
 False
@@ -51,7 +51,7 @@ Sklepikarz odpowiada:
 - Oczywiście że jest.
 Puchatek wyciąga pistolet i mówi:
 - TO ZA PROSIACZKA!!!;
-True
+False
 Siedzi trzech mężczyzn w kościele i jeden z nich mówi:
 - Moja żona podczas porodu czytała Jasia i Małgosie, i mamy teraz dwójkę dzieci.
 - A moja żona czytała Trzech Muszkieterów, i mamy teraz trójkę dzieci.
@@ -73,7 +73,7 @@ Babcia pyta Jasia :
 - Żeby podlać kwiatki.
 - Ale one są sztuczne!!!
 - Dlatego mam pustą konewkę.;
-True
+False
 Dla czego blondynka siedzi na zegarze?
 Bo chce być na czasie;
 True
@@ -108,7 +108,7 @@ Jak nazywa się wymarła rasa konia?
 True
 Co mówi wkurzony ogrodnik do kumpla?
 - Przesadziłeś;
-True
+False
 Koleś umówił się na randkę w ciemno. Ale trochę się wystraszył i pyta kumpla:
 - A co jeśli będzie brzydka jak noc?
 - Proste. Idź do jej domu i jeśli rzeczywiście tak będzie zacznij kasłać "ekhm" i udawaj silny atak astmy.
@@ -117,7 +117,7 @@ Poszedł, zadzwonił. W drzwiach pojawiła się najpiękniejsza kobieta jaką wi
 False
 Jak nazywa się telefon który wystrugał Dżepetto?
 Pinokia;
-True
+False
 Wykład na Wydziale Polonistyki:
 - W języku polskim można zaprzeczyć przez zaprzeczenie, podwójne zaprzeczenie i potwierdzenie. Nie da się natomiast zaprzeczyć przez podwójne potwierdzenie.
 Głos z sali:

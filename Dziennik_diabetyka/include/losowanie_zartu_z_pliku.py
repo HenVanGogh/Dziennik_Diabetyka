@@ -54,6 +54,3 @@ def say_a_joke() -> str:
     file_with_jokes_to_write.write(dict_with_jokes_as_string(jokes))
     file_with_jokes_to_write.close()
     return the_chosen_joke[:-1]
-
-
-print(say_a_joke())

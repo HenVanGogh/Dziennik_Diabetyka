@@ -24,10 +24,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(wpis_1.numer_pomiaru, 1)
         self.assertEqual(wpis_1.data, str(datetime.datetime.today()).split()[0])
         self.assertEqual(wpis_1.czy_w_normie(), "cukier w normie")
-        self.assertEqual(str(wpis_1), "| data: " + wpis_1.data +
-                         " | pomiar nr " + str(wpis_1.numer_pomiaru) +
-                         " | poziom cukru: " + str(wpis_1.poziom_cukru) +
-                         " | " + wpis_1.czy_w_normie() + " |\n")
+        self.assertEqual(str(wpis_1), "data: " + wpis_1.data +
+                         ", pomiar nr " + str(wpis_1.numer_pomiaru) +
+                         ", poziom cukru: " + str(wpis_1.poziom_cukru) +
+                         ", " + wpis_1.czy_w_normie() + "\n")
 
 
 if __name__ == '__main__':
