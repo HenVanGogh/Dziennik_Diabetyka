@@ -95,6 +95,7 @@ def average_of_chosen_day_and_month_and_year(data : str):
     for line in range(len(wiersze)):
         pom = wiersze[line]
         wyp.append(pom.split(','))
+        print(wyp[0][1][7:17])
         if data == wyp[0][1][7:17]: # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
             wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
         del wyp[0]
@@ -102,6 +103,7 @@ def average_of_chosen_day_and_month_and_year(data : str):
     ilosc = len(wartosci_pom)
     f.close()
     return str(suma / ilosc) + " mm/Hg"
+
 
 def average_of_chosen_month_and_year(data : str):
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -111,7 +113,7 @@ def average_of_chosen_month_and_year(data : str):
     for line in range(len(wiersze)):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        if data == wyp[0][1][10:18]:  # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+        if data == wyp[0][1][10:17]:  # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
             wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
         del wyp[0]
     suma = sum(wartosci_pom)
@@ -179,4 +181,3 @@ def standard_deviation_of_100_last_measurements():
     f.close()
     return str(odchylenie_stand) + " mm/Hg"
 
-graph_of_last_30_measurments()
