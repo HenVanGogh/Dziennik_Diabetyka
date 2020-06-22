@@ -51,7 +51,7 @@ def average_of_30_measurements():
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return suma / ilosc
+    return str(suma / ilosc) + " mm/Hg"
 
 def average_of_50_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -68,7 +68,7 @@ def average_of_50_measurements():
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return suma / ilosc
+    return str(suma / ilosc) + " mm/Hg"
 
 def average_of_100_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -85,7 +85,7 @@ def average_of_100_measurements():
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return suma / ilosc
+    return str(suma / ilosc) + " mm/Hg"
 
 def average_of_chosen_day_and_month_and_year(data : str):
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -101,7 +101,7 @@ def average_of_chosen_day_and_month_and_year(data : str):
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return suma / liczba
+    return str(suma / ilosc) + " mm/Hg"
 
 def average_of_chosen_month_and_year(data : str):
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -117,7 +117,7 @@ def average_of_chosen_month_and_year(data : str):
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return suma / ilosc
+    return str(suma / ilosc) + " mm/Hg"
 
 def standard_deviation_of_30_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -136,7 +136,8 @@ def standard_deviation_of_30_last_measurements():
     for elem in wartosci_pom:
         suma_roznic = suma_roznic + (elem - srednia) ** 2  # wyznaczenie sumy kwadratów różnic danego pomiaru od wartości średniej
     odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)),  2)  # obliczenie pierwiastka z obliczonej powyżej sumy i zaokrąglenie jej do 2 miejsc po przecinku
-    return odchylenie_stand
+    f.close()
+    return str(odchylenie_stand) + " mm/Hg"
 
 def standard_deviation_of_50_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -155,7 +156,8 @@ def standard_deviation_of_50_last_measurements():
     for elem in wartosci_pom:
         suma_roznic = suma_roznic + (elem - srednia) ** 2
     odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)), 2)
-    return odchylenie_stand
+    f.close()
+    return str(odchylenie_stand) + " mm/Hg"
 
 def standard_deviation_of_100_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -174,6 +176,7 @@ def standard_deviation_of_100_last_measurements():
     for elem in wartosci_pom:
          suma_roznic = suma_roznic + (elem - srednia)**2
     odchylenie_stand = round(math.sqrt(suma_roznic/len(wartosci_pom)), 2)
-    return odchylenie_stand
+    f.close()
+    return str(odchylenie_stand) + " mm/Hg"
 
 graph_of_last_30_measurments()
