@@ -60,7 +60,7 @@ I nagle trzeci mężczyzna wybiega z kościoła i mówi:
 False
 Dlaczego wulkan dostał piątke na lekcji?
 Bo jest aktywny:);
-True
+False
 Facet stoi na plaży i łowi rybki. Nagle złowił złotą rybkę. Złota rybka mówi:
 - Wypuść mnie a spełnię twoje życzenie.
 - Dobra, chcę mieć autostrade stąd na Wyspy Kanaryjskie.
