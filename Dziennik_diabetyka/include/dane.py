@@ -25,5 +25,3 @@ def dodaj_wpis(poziom_cukru):
     plik.write(dodac)
     plik.close()
 
-
-dodaj_wpis(103)
