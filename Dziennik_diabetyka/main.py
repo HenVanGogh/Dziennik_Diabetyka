@@ -4,9 +4,10 @@
 import sys
 sys.path.append("include")
 from dziennik import Wpis
-# from losowanie_zartu_z_pliku import say_a_joke()
-#
-#
-# print(say_a_joke())
+sys.path.append("include")
+from losowanie_zartu_z_pliku import say_a_joke
+
+
+print(say_a_joke())
 
 
