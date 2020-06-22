@@ -1,0 +1,130 @@
+- Byłaś u szefa na dywaniku?
+- Tak, a skąd wiesz?
+- Wzorek ci się odcisnął na plecach;
+True
+Bacę zaproszono w karnawale na bal przebierańców.
+Pytają go znajomi, za co się przebrał.
+- A za łoscypka.
+- A jak to, baco, za oscypka?
+- A siadne se w kąciku i bede śmierdział.;
+False
+Na drzewie siedzi wróbel, przylatuje wrona, Wróbel pyta:
+- Co ty jesteś za ptak?
+Ona odpowiada:
+- Wrona, a ty?
+- Ja to jestem orzeł, tylko trochę chorowałem!;
+False
+Żona do męża:
+- Wybieraj, piwo, albo ja!
+- Ile tego piwa?;
+True
+Jak nazywają się dwa takie same drzewa?
+- klony;
+True
+Co mówi kabel do kabla?
+- bądźmy w kontakcie;
+False
+Czemu złodziej umył podłoge?
+Bo chciał mieć czystą drogę ucieczki;
+True
+Dlaczego blondynka otwiera jogurt w sklepie?
+Bo na opakowaniu jest napisane "tu otwierać";
+False
+Żona pyta się męża czy płazy są głupie a mąż odpowiada:
+- Tak żabciu;
+True
+Co robi traktor u fryzjera?
+warkocze;
+False
+Blondynka grabiła liście dlaczego złamała rękę?
+Bo spadła z drzewa.;
+False
+Jak nazywa się kot który leci?
+Kotlecik;
+False
+Do czego prowadzą dyskusje o filozofii z blondynkami?
+Do Nietzschego.;
+False
+Przychodzi Puchatek do sklepu mięsnego pyta się:
+- Jest schab?
+Sklepikarz odpowiada:
+- Oczywiście że jest.
+Puchatek wyciąga pistolet i mówi:
+- TO ZA PROSIACZKA!!!;
+True
+Siedzi trzech mężczyzn w kościele i jeden z nich mówi:
+- Moja żona podczas porodu czytała Jasia i Małgosie, i mamy teraz dwójkę dzieci.
+- A moja żona czytała Trzech Muszkieterów, i mamy teraz trójkę dzieci.
+I nagle trzeci mężczyzna wybiega z kościoła i mówi:
+- Biegnę powstrzymać żonę bo czyta Sto Jeden Dalmatyńczyków.;
+False
+Dlaczego wulkan dostał piątke na lekcji?
+Bo jest aktywny:);
+True
+Facet stoi na plaży i łowi rybki. Nagle złowił złotą rybkę. Złota rybka mówi:
+- Wypuść mnie a spełnię twoje życzenie.
+- Dobra, chcę mieć autostrade stąd na Wyspy Kanaryjskie.
+- Ale ja jestem małą rybką, nie dam rady.
+- Dobra, to odpowiedz mi na pytanie: jak zrozumieć kobiety?
+- Jaką chcesz tą autostrade dwu trzy pasmową?;
+True
+Babcia pyta Jasia :
+- Jasiu, po co niesiesz tą konewkę?
+- Żeby podlać kwiatki.
+- Ale one są sztuczne!!!
+- Dlatego mam pustą konewkę.;
+True
+Dla czego blondynka siedzi na zegarze?
+Bo chce być na czasie;
+True
+Jak się nazywa przesolona firanka?
+- Zasłona;
+True
+Jasnowidz do jasnowidza:
+- Wiesz co?
+- Wiem.;
+True
+Ulubiony baton informatyka??
+3 bit;
+True
+Jak nazywa się kwiatek który świruje?
+Fiołek;
+True
+Jak nazywa się rosyjskie małżeństwo?
+Związek radziecki;
+True
+Przychodzi baba do lekarza. Panie doktorze jestem chora na skleroze.
+- Od kiedy?
+- Co od kiedy?;
+True
+Rozmowa o pracę:
+- Jakie są pańskie główne słabości?
+- Daję semantycznie poprawne, ale nie mające praktycznego zastosowania odpowiedzi.
+- Czy może Pan podać jakiś przykład?
+- Tak, mogę.;
+True
+Jak nazywa się wymarła rasa konia?
+- Koniec;
+True
+Co mówi wkurzony ogrodnik do kumpla?
+- Przesadziłeś;
+True
+Koleś umówił się na randkę w ciemno. Ale trochę się wystraszył i pyta kumpla:
+- A co jeśli będzie brzydka jak noc?
+- Proste. Idź do jej domu i jeśli rzeczywiście tak będzie zacznij kasłać "ekhm" i udawaj silny atak astmy.
+Poszedł, zadzwonił. W drzwiach pojawiła się najpiękniejsza kobieta jaką widział. Już miał coś powiedzieć, gdy nagle:
+- Ekhm, ekhm - dziewczyna dostała silnego ataku astmy.;
+False
+Jak nazywa się telefon który wystrugał Dżepetto?
+Pinokia;
+True
+Wykład na Wydziale Polonistyki:
+- W języku polskim można zaprzeczyć przez zaprzeczenie, podwójne zaprzeczenie i potwierdzenie. Nie da się natomiast zaprzeczyć przez podwójne potwierdzenie.
+Głos z sali:
+- Dobra, dobra...;
+False
+Żona pyta męża rano przy śniadaniu:
+- Dlaczego trzymasz gazetę w lodówce?
+Mąż odpowiada:
+- Żeby mieć codziennie świeże wiadomości.;
+True
