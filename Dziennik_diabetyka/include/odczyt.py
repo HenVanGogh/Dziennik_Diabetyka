@@ -40,7 +40,7 @@ def wyszukaj_po_pomiarze(pomiar):
     for key in baza.keys():
         if pomiar in baza[key]:
             daty.append(key)
-    if daty == []:
+    if daty is []:
         return "Taki pomiar nigdy nie został zarejestrowany"
     return daty
 
