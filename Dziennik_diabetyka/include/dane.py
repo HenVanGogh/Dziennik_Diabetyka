@@ -1,10 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from dziennik import Wpis
+from include.dziennik import Wpis
 import datetime
 
-def ktory_to_dzis_pomiar(data : str):
+
+def ktory_to_dzis_pomiar(data: str) -> int:
     measurment_number = 1
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
@@ -18,10 +19,9 @@ def ktory_to_dzis_pomiar(data : str):
     return measurment_number
 
 
-def dodaj_wpis(poziom_cukru):
-    plik = open('pomocniczy.csv','a', encoding=" utf -8")
+def dodaj_wpis(poziom_cukru: float) -> None:
+    plik = open('pomocniczy.csv', 'a', encoding=" utf -8")
     nowy_wpis = Wpis(poziom_cukru, ktory_to_dzis_pomiar(str(datetime.datetime.today()).split()[0]))
     dodac = str(nowy_wpis)
     plik.write(dodac)
     plik.close()
-

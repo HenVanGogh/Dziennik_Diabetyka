@@ -1,14 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys
-sys.path.append("include")
-from dziennik import Wpis
-from losowanie_zartu_z_pliku import say_a_joke
-from dane import dodaj_wpis
+from include.losowanie_zartu_z_pliku import say_a_joke
+from include.dane import dodaj_wpis
 
 
 print(say_a_joke())
 dodaj_wpis(98)
-
-

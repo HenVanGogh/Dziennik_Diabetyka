@@ -17,6 +17,7 @@ def otworz(plik):
                 pomiary = pomiary.split(",")
                 baza[data] = pomiary
 
+
 def zapisz(baza):
     # otwieramy plik do zapisu, istniejący plik zostanie nadpisany(!)
     pliktxt = open(sPlik, "w")
