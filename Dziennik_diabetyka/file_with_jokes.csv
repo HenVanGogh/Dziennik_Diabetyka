@@ -1,7 +1,7 @@
 - Byłaś u szefa na dywaniku?
 - Tak, a skąd wiesz?
 - Wzorek ci się odcisnął na plecach;
-True
+False
 Bacę zaproszono w karnawale na bal przebierańców.
 Pytają go znajomi, za co się przebrał.
 - A za łoscypka.
@@ -20,13 +20,13 @@ False
 False
 Jak nazywają się dwa takie same drzewa?
 - klony;
-False
+True
 Co mówi kabel do kabla?
 - bądźmy w kontakcie;
 False
 Czemu złodziej umył podłoge?
 Bo chciał mieć czystą drogę ucieczki;
-True
+False
 Dlaczego blondynka otwiera jogurt w sklepie?
 Bo na opakowaniu jest napisane "tu otwierać";
 False
@@ -51,7 +51,7 @@ Sklepikarz odpowiada:
 - Oczywiście że jest.
 Puchatek wyciąga pistolet i mówi:
 - TO ZA PROSIACZKA!!!;
-False
+True
 Siedzi trzech mężczyzn w kościele i jeden z nich mówi:
 - Moja żona podczas porodu czytała Jasia i Małgosie, i mamy teraz dwójkę dzieci.
 - A moja żona czytała Trzech Muszkieterów, i mamy teraz trójkę dzieci.
@@ -60,20 +60,20 @@ I nagle trzeci mężczyzna wybiega z kościoła i mówi:
 False
 Dlaczego wulkan dostał piątke na lekcji?
 Bo jest aktywny:);
-False
+True
 Facet stoi na plaży i łowi rybki. Nagle złowił złotą rybkę. Złota rybka mówi:
 - Wypuść mnie a spełnię twoje życzenie.
 - Dobra, chcę mieć autostrade stąd na Wyspy Kanaryjskie.
 - Ale ja jestem małą rybką, nie dam rady.
 - Dobra, to odpowiedz mi na pytanie: jak zrozumieć kobiety?
 - Jaką chcesz tą autostrade dwu trzy pasmową?;
-True
+False
 Babcia pyta Jasia :
 - Jasiu, po co niesiesz tą konewkę?
 - Żeby podlać kwiatki.
 - Ale one są sztuczne!!!
 - Dlatego mam pustą konewkę.;
-False
+True
 Dla czego blondynka siedzi na zegarze?
 Bo chce być na czasie;
 True
@@ -83,7 +83,7 @@ True
 Jasnowidz do jasnowidza:
 - Wiesz co?
 - Wiem.;
-True
+False
 Ulubiony baton informatyka??
 3 bit;
 True
@@ -105,7 +105,7 @@ Rozmowa o pracę:
 True
 Jak nazywa się wymarła rasa konia?
 - Koniec;
-True
+False
 Co mówi wkurzony ogrodnik do kumpla?
 - Przesadziłeś;
 False
@@ -117,7 +117,7 @@ Poszedł, zadzwonił. W drzwiach pojawiła się najpiękniejsza kobieta jaką wi
 False
 Jak nazywa się telefon który wystrugał Dżepetto?
 Pinokia;
-False
+True
 Wykład na Wydziale Polonistyki:
 - W języku polskim można zaprzeczyć przez zaprzeczenie, podwójne zaprzeczenie i potwierdzenie. Nie da się natomiast zaprzeczyć przez podwójne potwierdzenie.
 Głos z sali:

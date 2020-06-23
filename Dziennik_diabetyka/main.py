@@ -7,6 +7,8 @@ from dziennik import Wpis
 from losowanie_zartu_z_pliku import say_a_joke
 from dane import dodaj_wpis
 
+
+print(say_a_joke())
 dodaj_wpis(98)
 
 

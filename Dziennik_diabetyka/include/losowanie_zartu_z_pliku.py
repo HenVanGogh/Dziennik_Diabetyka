@@ -22,7 +22,7 @@ def dict_with_jokes_as_string(jokes_dct: Dict[str, bool]) -> str:
 
 
 def say_a_joke() -> str:
-    file_with_jokes_to_read = open("file_with_jokes.txt", "r", encoding="utf-8")
+    file_with_jokes_to_read = open("file_with_jokes.csv", "r", encoding="utf-8")
     jokes = {}
     was_joke_ended = False
     temp_joke = ""
@@ -50,7 +50,7 @@ def say_a_joke() -> str:
         jokes_to_choose = filling_the_list_of_jokes_to_choose(jokes)
     the_chosen_joke: str = rm.choice(jokes_to_choose)
     jokes[the_chosen_joke] = False
-    file_with_jokes_to_write = open("file_with_jokes.txt", "w", encoding="utf-8")
+    file_with_jokes_to_write = open("file_with_jokes.csv", "w", encoding="utf-8")
     file_with_jokes_to_write.write(dict_with_jokes_as_string(jokes))
     file_with_jokes_to_write.close()
     return the_chosen_joke[:-1]

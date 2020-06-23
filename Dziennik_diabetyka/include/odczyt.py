@@ -33,7 +33,8 @@ def zapisz(baza):
 def wyszukaj_po_dacie(szukana_data):
     if szukana_data in baza:
         return baza[szukana_data]
-    else: return "W tym dniu nie został zrealizowany żaden pomiar"
+    else:
+        return "W tym dniu nie został zrealizowany żaden pomiar"
 
 def wyszukaj_po_pomiarze(pomiar):
     daty = []
