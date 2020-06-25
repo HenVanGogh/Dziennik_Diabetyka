@@ -1,3 +1,0 @@
-data: 2020-06-22, pomiar nr 1, poziom cukru: 88, cukier w normie
-data: 2020-06-22, pomiar nr 2, poziom cukru: 105, za wysoki cukier
-data: 2020-06-22, pomiar nr 3, poziom cukru: 66, za niski cukier

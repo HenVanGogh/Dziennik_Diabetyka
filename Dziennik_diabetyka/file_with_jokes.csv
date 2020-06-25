@@ -79,7 +79,7 @@ Bo chce być na czasie;
 True
 Jak się nazywa przesolona firanka?
 - Zasłona;
-True
+False
 Jasnowidz do jasnowidza:
 - Wiesz co?
 - Wiem.;
@@ -96,13 +96,13 @@ True
 Przychodzi baba do lekarza. Panie doktorze jestem chora na skleroze.
 - Od kiedy?
 - Co od kiedy?;
-True
+False
 Rozmowa o pracę:
 - Jakie są pańskie główne słabości?
 - Daję semantycznie poprawne, ale nie mające praktycznego zastosowania odpowiedzi.
 - Czy może Pan podać jakiś przykład?
 - Tak, mogę.;
-True
+False
 Jak nazywa się wymarła rasa konia?
 - Koniec;
 False
@@ -117,7 +117,7 @@ Poszedł, zadzwonił. W drzwiach pojawiła się najpiękniejsza kobieta jaką wi
 False
 Jak nazywa się telefon który wystrugał Dżepetto?
 Pinokia;
-True
+False
 Wykład na Wydziale Polonistyki:
 - W języku polskim można zaprzeczyć przez zaprzeczenie, podwójne zaprzeczenie i potwierdzenie. Nie da się natomiast zaprzeczyć przez podwójne potwierdzenie.
 Głos z sali:

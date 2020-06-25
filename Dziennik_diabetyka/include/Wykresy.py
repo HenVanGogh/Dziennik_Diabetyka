@@ -5,8 +5,8 @@ import math
 from matplotlib import pyplot as plt
 from matplotlib import style
 
-def graph_of_last_30_measurments():
 
+def graph_of_last_30_measurments():
     style.use("bmh")
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")  # otwarcie pliku do odczytu
     wiersze = f.readlines()  # lista zawierająca kolejne wiersze z naszej bazy
@@ -20,7 +20,7 @@ def graph_of_last_30_measurments():
         pom = wiersze[line]  # wypakowanie danego wiersza do zmiennej a
         wyp.append(pom.split(','))  # podział ze względu na przecinki w wpisie i wpisanie do listy pomocniczej wyp
         wartosci_pom.append(
-            int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))  # sklejenie odpowiednich danych wraz z konwersją na int
+            int(wyp[0][2][15:18]))  # sklejenie odpowiednich danych wraz z konwersją na int
         del wyp[0]
     for i in range(len(wiersze) - 30):
         del wartosci_pom[i + 30]  # usunięcie niepotrzebnych pomiarów
@@ -35,6 +35,7 @@ def graph_of_last_30_measurments():
     plt.show()
     f.close()
 
+
 def average_of_30_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")  # otwarcie pliku do odczytu
     wiersze = f.readlines()  # lista zawierająca kolejne wiersze z naszej bazy
@@ -44,14 +45,15 @@ def average_of_30_measurements():
         pom = wiersze[line]  # wypakowanie danego wiersza do zmiennej pomocniczej a
         wyp.append(pom.split(','))  # podział ze względu na przecinki w wpisie i wpisanie do listy pomocniczej wyp
         wartosci_pom.append(
-            int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))  # sklejenie odpowiednich danych wraz z konwersją na int
+            int(wyp[0][2][15:18]))  # sklejenie odpowiednich danych wraz z konwersją na int
         del wyp[0]
     for i in range(len(wiersze) - 30):
         del wartosci_pom[i + 30]  # usunięcie niepotrzebnych pomiarów
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return str(suma / ilosc) + " mm/Hg"
+    return str(round(suma / ilosc, 2)) + " mm/Hg"
+
 
 def average_of_50_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -61,14 +63,15 @@ def average_of_50_measurements():
     for line in range(len(wiersze) - 1, -1, -1):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     for i in range(len(wiersze) - 50):
         del wartosci_pom[i + 50]
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return str(suma / ilosc) + " mm/Hg"
+    return str(round(suma / ilosc, 2)) + " mm/Hg"
+
 
 def average_of_100_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -78,16 +81,17 @@ def average_of_100_measurements():
     for line in range(len(wiersze) - 1, -1, -1):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     for i in range(len(wiersze) - 100):
         del wartosci_pom[i + 100]
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return str(suma / ilosc) + " mm/Hg"
+    return str(round(suma / ilosc, 2)) + " mm/Hg"
 
-def average_of_chosen_day_and_month_and_year(data : str):
+
+def average_of_chosen_day_and_month_and_year(data: str):
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wartosci_pom = []
@@ -95,13 +99,13 @@ def average_of_chosen_day_and_month_and_year(data : str):
     for line in range(len(wiersze)):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        if data == wyp[0][1][7:17]: # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
-            wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        if data == wyp[0][0][6:17]: # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+            wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return str(suma / ilosc) + " mm/Hg"
+    return str(round(suma / ilosc, 2)) + " mm/Hg"
 
 
 def average_of_chosen_month_and_year(data : str):
@@ -112,13 +116,14 @@ def average_of_chosen_month_and_year(data : str):
     for line in range(len(wiersze)):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        if data == wyp[0][1][10:17]:  # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
-            wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        if data == wyp[0][0][6:13]:  # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+            wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
-    return str(suma / ilosc) + " mm/Hg"
+    return str(round(suma / ilosc, 2)) + " mm/Hg"
+
 
 def standard_deviation_of_30_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
@@ -128,7 +133,7 @@ def standard_deviation_of_30_last_measurements():
     for line in range(len(wiersze) - 1, -1, -1):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     for i in range(len(wiersze) - 30):
         del wartosci_pom[i + 30]
@@ -140,6 +145,7 @@ def standard_deviation_of_30_last_measurements():
     f.close()
     return str(odchylenie_stand) + " mm/Hg"
 
+
 def standard_deviation_of_50_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
@@ -148,7 +154,7 @@ def standard_deviation_of_50_last_measurements():
     for line in range(len(wiersze) - 1, -1, -1):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     for i in range(len(wiersze) - 50):
         del wartosci_pom[i + 50]
@@ -160,6 +166,7 @@ def standard_deviation_of_50_last_measurements():
     f.close()
     return str(odchylenie_stand) + " mm/Hg"
 
+
 def standard_deviation_of_100_last_measurements():
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
@@ -168,7 +175,7 @@ def standard_deviation_of_100_last_measurements():
     for line in range(len(wiersze) - 1, -1, -1):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        wartosci_pom.append(int(wyp[0][3][15] + wyp[0][3][16] + wyp[0][3][17]))
+        wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
     for i in range(len(wiersze) - 100):
         del wartosci_pom[i + 100]
@@ -179,4 +186,3 @@ def standard_deviation_of_100_last_measurements():
     odchylenie_stand = round(math.sqrt(suma_roznic/len(wartosci_pom)), 2)
     f.close()
     return str(odchylenie_stand) + " mm/Hg"
-

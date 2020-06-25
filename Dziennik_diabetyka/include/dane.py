@@ -7,7 +7,7 @@ import datetime
 
 def ktory_to_dzis_pomiar(data: str) -> int:
     measurment_number = 1
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    f = open('baza.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wyp = []
     for line in range(len(wiersze)):
@@ -20,7 +20,7 @@ def ktory_to_dzis_pomiar(data: str) -> int:
 
 
 def dodaj_wpis(poziom_cukru: float) -> None:
-    plik = open('pomocniczy.csv', 'a', encoding=" utf -8")
+    plik = open('baza.csv', 'a', encoding=" utf -8")
     nowy_wpis = Wpis(poziom_cukru, ktory_to_dzis_pomiar(str(datetime.datetime.today()).split()[0]))
     dodac = str(nowy_wpis)
     plik.write(dodac)

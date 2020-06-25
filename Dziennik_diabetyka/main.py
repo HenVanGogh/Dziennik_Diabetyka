@@ -5,5 +5,4 @@ from include.losowanie_zartu_z_pliku import say_a_joke
 from include.dane import dodaj_wpis
 
 
-print(say_a_joke())
-dodaj_wpis(98)
+dodaj_wpis(79)
