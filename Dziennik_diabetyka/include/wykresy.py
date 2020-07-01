@@ -4,6 +4,7 @@
 import math
 from matplotlib import pyplot as plt
 from matplotlib import style
+from typing import List
 
 
 def graph_of_last_30_measurments():
@@ -55,7 +56,7 @@ def average_of_n_measurements(n: int) -> str:
     return str(round(suma / ilosc, 2)) + " mm/Hg"
 
 
-def average_of_chosen_day_and_month_and_year(data: str):
+def average_of_chosen_day_and_month_and_year(data: str) -> str:
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wartosci_pom = []
@@ -72,7 +73,7 @@ def average_of_chosen_day_and_month_and_year(data: str):
     return str(round(suma / ilosc, 2)) + " mm/Hg"
 
 
-def average_of_chosen_month_and_year(data: str):
+def average_of_chosen_month_and_year(data: str) -> str:
     f = open('pomocniczy.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wartosci_pom = []
@@ -108,3 +109,42 @@ def standard_deviation_of_n_last_measurements(n: int) -> str:
     odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)),  2)    # obliczenie pierwiastka z obliczonej powyżej sumy i zaokrąglenie jej do 2 miejsc po przecinku
     f.close()
     return str(odchylenie_stand) + " mm/Hg"
+
+
+def measurments_from_chosen_day_and_month_and_year(data: str):
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    measurments_from_chosen_date = []
+    wyp = []
+    for line in wiersze:
+        pom = line
+        wyp.append(pom.split(','))
+        if data == wyp[0][0][6:17]:         # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+            measurments_from_chosen_date.append(line)
+        del wyp[0]
+    f.close()
+    return list_with_measurments_as_string(measurments_from_chosen_date)
+
+
+def measurments_from_chosen_month_and_year(data: str) -> str:
+    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    measurments_from_chosen_date = []
+    wyp = []
+    for line in wiersze:
+        pom = line
+        wyp.append(pom.split(','))
+        if data == wyp[0][0][6:13]:         # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
+            measurments_from_chosen_date.append(line)
+        del wyp[0]
+    f.close()
+    return list_with_measurments_as_string(measurments_from_chosen_date)
+
+
+def list_with_measurments_as_string(measurments_list: List[str]) -> str:
+    list_as_string = ""
+    for measurment in measurments_list:
+        list_as_string += measurment
+    return list_as_string
+
+
