@@ -9,7 +9,7 @@ from typing import List
 
 def graph_of_last_30_measurments():
     style.use("bmh")
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")     # otwarcie pliku do odczytu
+    f = open('baza.csv', 'r', encoding=" utf -8")     # otwarcie pliku do odczytu
     wiersze = f.readlines()                                 # lista zawierająca kolejne wiersze z naszej bazy
     x = [i for i in range(1, len(wiersze) + 1)]             # lista kolejnych liczb całkowitych od 1 do ilości wierszy w bazie
     wartosci_pom = []                                       # lista do której będą trafiały wartości poziomu cukru
@@ -112,7 +112,7 @@ def standard_deviation_of_n_last_measurements(n: int) -> str:
 
 
 def measurments_from_chosen_day_and_month_and_year(data: str):
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    f = open('baza.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     measurments_from_chosen_date = []
     wyp = []
@@ -146,5 +146,4 @@ def list_with_measurments_as_string(measurments_list: List[str]) -> str:
     for measurment in measurments_list:
         list_as_string += measurment
     return list_as_string
-
 
