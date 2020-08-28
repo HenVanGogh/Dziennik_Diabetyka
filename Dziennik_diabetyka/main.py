@@ -6,18 +6,18 @@ from include.dane import dodaj_wpis
 from include.wykresy import measurments_from_chosen_day_and_month_and_year, graph_of_last_30_measurments
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog, QGridLayout, QGroupBox, QHBoxLayout,
                              QLabel, QLineEdit, QPushButton, QSizePolicy, QStyleFactory,
-                             QTableWidget, QTabWidget, QVBoxLayout, QWidget)
+                             QTableWidget, QTabWidget, QVBoxLayout, QWidget , QTextBrowser)
 
 
 class WidgetGallery(QDialog):
     def __init__(self, parent=None):
         super(WidgetGallery, self).__init__(parent)
 
-        self.textbox_joke = QLineEdit(self)
+        self.textbox_joke = QTextBrowser(self)
         self.textbox_day = QLineEdit(self)
         self.textbox_month = QLineEdit(self)
         self.textbox_year = QLineEdit(self)
-        self.textbox_found_measurments = QLineEdit(self)
+        self.textbox_found_measurments = QTextBrowser(self)
         self.textbox_measurment = QLineEdit(self)
         # self.textbox_graph = QLineEdit(self)
         self.AddMeasurmentGroupBox = QGroupBox("Dodaj nowy pomiar")
@@ -134,10 +134,10 @@ class WidgetGallery(QDialog):
         layout = QVBoxLayout()
 
         stats_button = QPushButton("Narysuj wykres")
-        # stats_button.setDefault(False)
-        # stats_button.clicked.connect(self.draw_graph())
+        #stats_button.setDefault(False)
+        stats_button.clicked.connect(self.draw_graph)
         layout.addWidget(stats_button)
-        # layout.addWidget(self.textbox_graph)
+        #layout.addWidget(self.textbox_graph)
 
         layout.addStretch(1)
         self.StatisticsGroupBox.setLayout(layout)
