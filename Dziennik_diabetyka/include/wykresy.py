@@ -146,4 +146,3 @@ def list_with_measurments_as_string(measurments_list: List[str]) -> str:
     for measurment in measurments_list:
         list_as_string += measurment
     return list_as_string
-

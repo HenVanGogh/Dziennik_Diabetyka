@@ -141,7 +141,7 @@ class WidgetGallery(QDialog):
     def createStatisticsGroupBox(self):
         layout = QVBoxLayout()
 
-        stats_button = QPushButton("Narysuj wykres ostatnich 30 pomiarów")
+        stats_button = QPushButton("Narysuj wykres ostatnich 30 pomiarow")
         #stats_button.setDefault(False)
         stats_button.clicked.connect(self.draw_graph)
         layout.addWidget(stats_button)
