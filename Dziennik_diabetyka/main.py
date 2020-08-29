@@ -6,9 +6,8 @@ from include.dane import dodaj_wpis
 from include.wykresy import measurments_from_chosen_day_and_month_and_year, graph_of_last_30_measurments
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog, QGridLayout, QGroupBox, QHBoxLayout,
                              QLabel, QLineEdit, QPushButton, QSizePolicy, QStyleFactory,
-                             QTableWidget, QTabWidget, QVBoxLayout, QWidget, QTextBrowser)
+                             QTableWidget, QTabWidget, QVBoxLayout, QWidget , QTextBrowser)
 import os
-
 
 class WidgetGallery(QDialog):
     def __init__(self, parent=None):
@@ -20,6 +19,7 @@ class WidgetGallery(QDialog):
         self.textbox_year = QLineEdit(self)
         self.textbox_found_measurments = QTextBrowser(self)
         self.textbox_measurment = QLineEdit(self)
+        # self.textbox_graph = QLineEdit(self)
         self.AddMeasurmentGroupBox = QGroupBox("Dodaj nowy pomiar")
         self.SearchingGroupBox = QGroupBox("Przeszukiwanie bazy")
         self.JokesGroupBox = QGroupBox("Kącik rozrywkowy")
@@ -83,12 +83,18 @@ class WidgetGallery(QDialog):
         os.system("python google_synch.py r")
 
     def search(self):
-        print((measurments_from_chosen_day_and_month_and_year(
-            self.textbox_year.text() + "-" + self.textbox_month.text() + "-" + self.textbox_day.text())))
-        self.textbox_found_measurments.setText(measurments_from_chosen_day_and_month_and_year(
-            self.textbox_year.text() + "-" + self.textbox_month.text() + "-" + self.textbox_day.text()))
-
+        if(int(self.textbox_month.text()) < 9):
+            print((measurments_from_chosen_day_and_month_and_year(
+                self.textbox_year.text() + "-" + "0"+ self.textbox_month.text() + "-" + self.textbox_day.text())))
+            self.textbox_found_measurments.setText(measurments_from_chosen_day_and_month_and_year(
+                self.textbox_year.text() + "-" + "0"+ self.textbox_month.text() + "-" + self.textbox_day.text()))
+        else:
+            print((measurments_from_chosen_day_and_month_and_year(
+                self.textbox_year.text() + "-"  + self.textbox_month.text() + "-" + self.textbox_day.text())))
+            self.textbox_found_measurments.setText(measurments_from_chosen_day_and_month_and_year(
+                self.textbox_year.text() + "-"  + self.textbox_month.text() + "-" + self.textbox_day.text()))
     def draw_graph(self):
+        # self.textbox_graph.setText(str(graph_of_last_30_measurments()))
         graph_of_last_30_measurments()
 
     def createAddMeasurmentGroupBox(self):
@@ -139,9 +145,11 @@ class WidgetGallery(QDialog):
     def createStatisticsGroupBox(self):
         layout = QVBoxLayout()
 
-        stats_button = QPushButton("Narysuj wykres ostatnich 30 pomiarow")
+        stats_button = QPushButton("Narysuj wykres")
+        #stats_button.setDefault(False)
         stats_button.clicked.connect(self.draw_graph)
         layout.addWidget(stats_button)
+        #layout.addWidget(self.textbox_graph)
 
         layout.addStretch(1)
         self.StatisticsGroupBox.setLayout(layout)
@@ -151,6 +159,6 @@ if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
     gallery = WidgetGallery()
-    gallery.resize(1000, 500)
+    gallery.resize(450, 250)
     gallery.show()
     sys.exit(app.exec_())
