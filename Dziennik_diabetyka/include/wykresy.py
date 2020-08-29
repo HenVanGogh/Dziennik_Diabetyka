@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import math
+
 from matplotlib import pyplot as plt
 from matplotlib import style
 from typing import List
@@ -28,11 +29,12 @@ def graph_of_last_30_measurments():
     wartosci_pom.reverse()
     # narysowanie wykresu z wykorzystaniem matplotliba
     plt.plot(x, wartosci_pom, 'g', x, c1, '--', x, c2, '--', linewidth=5)
-    plt.title("Wykres 30 pomiarów")
+    plt.title("Wykres 30 ostatnich pomiarów poziomu cukru")
     plt.ylabel("Poziom cukru [mm/dl]")
-    plt.xlabel("Pomiar")
+    # plt.xlabel("Pomiar")
     plt.legend(["Wykres pomiarów cukru", "Min. dopuszczalna wartość cukru", "Max. dopuszczalna wartość cukru"], loc='upper right')
     plt.grid(True, color='k')
+    plt.xticks([])
     plt.show()
     f.close()
 

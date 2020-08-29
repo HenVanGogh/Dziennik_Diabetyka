@@ -12,6 +12,11 @@ import sys
 import datetime
 import csv
 
+from include.losowanie_zartu_z_pliku import say_a_joke
+from include.dane import dodaj_wpis
+from include.wykresy import graph_of_last_30_measurments, measurments_from_chosen_day_and_month_and_year, \
+    measurments_from_chosen_month_and_year
+
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
@@ -21,6 +26,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 scope_permission = "https://www.googleapis.com/auth/drive.file"
 
 SAMPLE_SPREADSHEET_ID = ""
+
 
 def main():
     first_time_user = True
@@ -44,7 +50,7 @@ def main():
 
     service = build('sheets', 'v4', credentials=creds)
 
-    if(first_time_user):
+    if first_time_user:
         title = "dziennik diabetyka"
         file1 = open("file_name.txt", "w")
         spreadsheet = {
@@ -77,10 +83,10 @@ def main():
     except IndexError:
         pass
 
-    if(placeholder == "r"):
+    if placeholder == "r":
         i = 1
         pointer = 0
-        while (pointer != []):
+        while pointer:
             pointer = read_data(sheet, SAMPLE_SPREADSHEET_ID, "A" + str(i))
             i += 1
         data = read_data(sheet, SAMPLE_SPREADSHEET_ID, "A1:D" + str(i))
@@ -94,10 +100,10 @@ def main():
                 is_there = 0
                 for row in reader:
                     print(row)
-                    if(i == row):
+                    if i == row:
                         is_there = 1
                         break
-                if(is_there == 0):
+                if is_there == 0:
                     tmp_data.append(i)
         print(tmp_data)
         with open('dziennik.csv', mode='a', newline='') as csv_file:
@@ -106,24 +112,13 @@ def main():
                 baza = csv.writer(baza_file, delimiter=',')
                 for i in tmp_data:
                     writer.writerow(i)
-                    dodaj_wpis(i[3])
+                    dodaj_wpis(int(i[3]), i[0], i[1], i[2])
 
-
-
-        # try:
-        #     os.remove('dziennik.csv')
-        # except OSError:
-        #     pass
-        # with open('dziennik.csv' , mode='w',newline='') as csv_file:
-        #     writer = csv.writer(csv_file, delimiter=',')
-        #     for i in data:
-        #         writer.writerow(i)
-
-    if(placeholder == "w"):
+    if placeholder == "w":
         current_time = datetime.datetime.now()
         i = 1
         pointer = 0
-        while(pointer != []):
+        while pointer:
             pointer = read_data(sheet, SAMPLE_SPREADSHEET_ID, "A" + str(i))
             i += 1
         i -= 1
@@ -156,51 +151,8 @@ def main():
             spreadsheetId=SAMPLE_SPREADSHEET_ID, range="D" + str(i),
             valueInputOption="RAW", body=body).execute()
 
-def read_data(sheet ,SAMPLE_SPREADSHEET_ID, range_r):
+
+def read_data(sheet, SAMPLE_SPREADSHEET_ID, range_r):
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                                 range=range_r).execute()
     return result.get('values', [])
-
-
-def dodaj_wpis(poziom_cukru: float) -> None:
-    plik = open('baza.csv', 'a', encoding=" utf -8")
-    nowy_wpis = Wpis(poziom_cukru, ktory_to_dzis_pomiar(str(datetime.datetime.today()).split()[0]))
-    dodac = str(nowy_wpis)
-    plik.write(dodac)
-    plik.close()
-
-def ktory_to_dzis_pomiar(data: str) -> int:
-    measurment_number = 1
-    f = open('baza.csv', 'r', encoding=" utf -8")
-    wiersze = f.readlines()
-    wyp = []
-    for line in range(len(wiersze)):
-        pom = wiersze[line]
-        wyp.append(pom.split(','))
-        if data == wyp[0][0][6:16]:    # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
-            measurment_number += 1
-        del wyp[0]
-    return measurment_number
-
-class Wpis:
-    def __init__(self, poziom_cukru: float, numer_pomiaru: int):
-        self.poziom_cukru = poziom_cukru
-        self.numer_pomiaru = numer_pomiaru
-        self.data = str(datetime.datetime.today()).split()[0]
-
-    def czy_w_normie(self) -> str:
-        if 70 <= self.poziom_cukru <= 99:
-            return "cukier w normie"
-        elif self.poziom_cukru < 70:
-            return "za niski cukier"
-        else:
-            return "za wysoki cukier"
-
-    def __str__(self) -> str:
-        reprezentacja_wpisu = "data: " + self.data + ", pomiar nr " + str(self.numer_pomiaru) + \
-                              ", poziom cukru: " + str(self.poziom_cukru) + ", " \
-                              + self.czy_w_normie() + "\n"
-        return reprezentacja_wpisu
-
-if __name__ == '__main__':
-    main()
