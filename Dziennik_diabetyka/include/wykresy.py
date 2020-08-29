@@ -149,4 +149,3 @@ def list_with_measurments_as_string(measurments_list: List[str]) -> str:
         list_as_string += measurment
     return list_as_string
 
-graph_of_last_30_measurments()
