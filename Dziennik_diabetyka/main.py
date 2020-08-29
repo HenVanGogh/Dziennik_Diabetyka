@@ -7,6 +7,7 @@ from include.wykresy import measurments_from_chosen_day_and_month_and_year, grap
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog, QGridLayout, QGroupBox, QHBoxLayout,
                              QLabel, QLineEdit, QPushButton, QSizePolicy, QStyleFactory,
                              QTableWidget, QTabWidget, QVBoxLayout, QWidget , QTextBrowser)
+import os
 
 
 class WidgetGallery(QDialog):
@@ -76,7 +77,11 @@ class WidgetGallery(QDialog):
 
     def add_sugar(self):
         dodaj_wpis(int(self.textbox_measurment.text()))
+        os.system("python google_synch.py w " + str(self.textbox_measurment.text()))
         self.textbox_measurment.clear()
+
+    def synch_up(self):
+        os.system("python google_synch.py r")
 
     def search(self):
         print((measurments_from_chosen_day_and_month_and_year(
@@ -98,6 +103,9 @@ class WidgetGallery(QDialog):
         default_push_button.setDefault(True)
         layout.addWidget(default_push_button)
 
+        synch_button = QPushButton("Synchronizuj")
+        synch_button.clicked.connect(self.synch_up)
+        layout.addWidget(synch_button)
         layout.addStretch(1)
         self.AddMeasurmentGroupBox.setLayout(layout)
 
