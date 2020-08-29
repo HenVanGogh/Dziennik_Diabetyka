@@ -5,10 +5,10 @@ import datetime
 
 
 class Wpis:
-    def __init__(self, poziom_cukru: float, numer_pomiaru: int , date = None):
+    def __init__(self, poziom_cukru: float, numer_pomiaru: int, date=None):
         self.poziom_cukru = poziom_cukru
         self.numer_pomiaru = numer_pomiaru
-        if(date is None):
+        if date is None:
             self.data = str(datetime.datetime.today()).split()[0]
         else:
             self.data = date
