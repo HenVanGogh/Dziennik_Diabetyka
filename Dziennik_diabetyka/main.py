@@ -3,7 +3,7 @@
 
 from include.losowanie_zartu_z_pliku import say_a_joke
 from include.dane import dodaj_wpis
-from include.wykresy import measurments_from_chosen_day_and_month_and_year, graph_of_last_30_measurments
+from include.wykresy import *
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog, QGridLayout, QGroupBox, QHBoxLayout,
                              QLabel, QLineEdit, QPushButton, QSizePolicy, QStyleFactory,
                              QTableWidget, QTabWidget, QVBoxLayout, QWidget, QTextBrowser)
@@ -18,8 +18,13 @@ class WidgetGallery(QDialog):
         self.textbox_day = QLineEdit(self)
         self.textbox_month = QLineEdit(self)
         self.textbox_year = QLineEdit(self)
+        self.textbox_day_stats = QLineEdit(self)
+        self.textbox_month_stats = QLineEdit(self)
+        self.textbox_year_stats = QLineEdit(self)
         self.textbox_found_measurments = QTextBrowser(self)
         self.textbox_measurment = QLineEdit(self)
+        self.textbox_average = QLineEdit(self)
+        self.textbox_standard_deviation = QLineEdit(self)
         self.AddMeasurmentGroupBox = QGroupBox("Dodaj nowy pomiar")
         self.SearchingGroupBox = QGroupBox("Przeszukiwanie bazy")
         self.JokesGroupBox = QGroupBox("Kącik rozrywkowy")
@@ -54,8 +59,8 @@ class WidgetGallery(QDialog):
         main_layout = QGridLayout()
         main_layout.addWidget(self.AddMeasurmentGroupBox, 0, 0)
         main_layout.addWidget(self.SearchingGroupBox, 1, 0)
-        main_layout.addWidget(self.JokesGroupBox, 2, 0)
-        main_layout.addWidget(self.StatisticsGroupBox, 3, 0)
+        main_layout.addWidget(self.StatisticsGroupBox, 2, 0)
+        main_layout.addWidget(self.JokesGroupBox, 3, 0)
         self.setLayout(main_layout)
 
         self.setWindowTitle("Dziennik")
@@ -84,18 +89,33 @@ class WidgetGallery(QDialog):
 
     def search(self):
         if int(self.textbox_month.text()) < 9:
-            print((measurments_from_chosen_day_and_month_and_year(
-                self.textbox_year.text() + "-" + "0" + self.textbox_month.text() + "-" + self.textbox_day.text())))
-            self.textbox_found_measurments.setText(measurments_from_chosen_day_and_month_and_year(
-                self.textbox_year.text() + "-" + "0" + self.textbox_month.text() + "-" + self.textbox_day.text()))
+            year_and_month = self.textbox_year.text() + "-0" + self.textbox_month.text()
         else:
-            print((measurments_from_chosen_day_and_month_and_year(
-                self.textbox_year.text() + "-" + self.textbox_month.text() + "-" + self.textbox_day.text())))
-            self.textbox_found_measurments.setText(measurments_from_chosen_day_and_month_and_year(
-                self.textbox_year.text() + "-" + self.textbox_month.text() + "-" + self.textbox_day.text()))
+            year_and_month = self.textbox_year.text() + "-" + self.textbox_month.text()
+
+        if self.textbox_day.text() is "":
+            self.textbox_found_measurments.setText(measurments_from_chosen_month_and_year(year_and_month))
+        else:
+            self.textbox_found_measurments.setText(
+                measurments_from_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day.text()))
 
     def draw_graph(self):
         graph_of_last_30_measurments()
+
+    def average_and_standard_deviation(self):
+        if int(self.textbox_month_stats.text()) < 9:
+            year_and_month = self.textbox_year_stats.text() + "-0" + self.textbox_month_stats.text()
+        else:
+            year_and_month = self.textbox_year_stats.text() + "-" + self.textbox_month_stats.text()
+
+        if self.textbox_day_stats.text() is "":
+            self.textbox_average.setText(average_of_chosen_month_and_year(year_and_month))
+            self.textbox_standard_deviation.setText(standard_deviation_of_chosen_month_and_year(year_and_month))
+        else:
+            self.textbox_average.setText(
+                average_of_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day_stats.text()))
+            self.textbox_standard_deviation.setText(
+                standard_deviation_of_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day_stats.text()))
 
     def createAddMeasurmentGroupBox(self):
         layout = QVBoxLayout()
@@ -131,6 +151,29 @@ class WidgetGallery(QDialog):
         layout.addStretch(1)
         self.SearchingGroupBox.setLayout(layout)
 
+    def createStatisticsGroupBox(self):
+        layout = QVBoxLayout()
+
+        stats_button = QPushButton("Narysuj wykres ostatnich 30 pomiarów")
+        stats_button.clicked.connect(self.draw_graph)
+        layout.addWidget(stats_button)
+        layout.addWidget(QLabel("Rok"))
+        layout.addWidget(self.textbox_year_stats)
+        layout.addWidget(QLabel("Miesiąc"))
+        layout.addWidget(self.textbox_month_stats)
+        layout.addWidget(QLabel("Dzień"))
+        layout.addWidget(self.textbox_day_stats)
+        average_and_standard_deviation_button = QPushButton("Oblicz średni cukier i odchylenie standardowe")
+        average_and_standard_deviation_button.clicked.connect(self.average_and_standard_deviation)
+        layout.addWidget(average_and_standard_deviation_button)
+        layout.addWidget(QLabel("Średni cukier"))
+        layout.addWidget(self.textbox_average)
+        layout.addWidget(QLabel("Odchylenie standardowe"))
+        layout.addWidget(self.textbox_standard_deviation)
+
+        layout.addStretch(1)
+        self.StatisticsGroupBox.setLayout(layout)
+
     def createJokesGroupBox(self):
         layout = QVBoxLayout()
 
@@ -141,16 +184,6 @@ class WidgetGallery(QDialog):
 
         layout.addStretch(1)
         self.JokesGroupBox.setLayout(layout)
-
-    def createStatisticsGroupBox(self):
-        layout = QVBoxLayout()
-
-        stats_button = QPushButton("Narysuj wykres")
-        stats_button.clicked.connect(self.draw_graph)
-        layout.addWidget(stats_button)
-
-        layout.addStretch(1)
-        self.StatisticsGroupBox.setLayout(layout)
 
 
 if __name__ == '__main__':

@@ -30,7 +30,7 @@ def graph_of_last_30_measurments():
     # narysowanie wykresu z wykorzystaniem matplotliba
     plt.plot(x, wartosci_pom, 'g', x, c1, '--', x, c2, '--', linewidth=5)
     plt.title("Wykres 30 ostatnich pomiarów poziomu cukru")
-    plt.ylabel("Poziom cukru [mm/dl]")
+    plt.ylabel("Poziom cukru [mm/Hg]")
     # plt.xlabel("Pomiar")
     plt.legend(["Wykres pomiarów cukru", "Min. dopuszczalna wartość cukru", "Max. dopuszczalna wartość cukru"], loc='upper right')
     plt.grid(True, color='k')
@@ -39,27 +39,8 @@ def graph_of_last_30_measurments():
     f.close()
 
 
-def average_of_n_measurements(n: int) -> str:
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")     # otwarcie pliku do odczytu
-    wiersze = f.readlines()                                 # lista zawierająca kolejne wiersze z naszej bazy
-    wartosci_pom = []                                       # lista do której będą trafiały wartości poziomu cukru
-    wyp = []                                                # lista pomocnicza do wypakowania wpisu
-    for line in range(len(wiersze) - 1, -1, -1):
-        pom = wiersze[line]                                 # wypakowanie danego wiersza do zmiennej pomocniczej a
-        wyp.append(pom.split(','))       # podział ze względu na przecinki w wpisie i wpisanie do listy pomocniczej wyp
-        wartosci_pom.append(
-            int(wyp[0][2][15:18]))                          # sklejenie odpowiednich danych wraz z konwersją na int
-        del wyp[0]
-    for i in range(len(wiersze) - n):
-        del wartosci_pom[i + n]                            # usunięcie niepotrzebnych pomiarów
-    suma = sum(wartosci_pom)
-    ilosc = len(wartosci_pom)
-    f.close()
-    return str(round(suma / ilosc, 2)) + " mm/Hg"
-
-
 def average_of_chosen_day_and_month_and_year(data: str) -> str:
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    f = open('baza.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wartosci_pom = []
     wyp = []
@@ -69,6 +50,10 @@ def average_of_chosen_day_and_month_and_year(data: str) -> str:
         if data == wyp[0][0][6:17]:         # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
             wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
+
+    if len(wartosci_pom) == 0:
+        return "Brak pomiarów z wybranego okresu"
+
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
@@ -76,7 +61,7 @@ def average_of_chosen_day_and_month_and_year(data: str) -> str:
 
 
 def average_of_chosen_month_and_year(data: str) -> str:
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    f = open('baza.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wartosci_pom = []
     wyp = []
@@ -86,24 +71,55 @@ def average_of_chosen_month_and_year(data: str) -> str:
         if data == wyp[0][0][6:13]:         # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
             wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
+
+    if len(wartosci_pom) == 0:
+        return "Brak pomiarów z wybranego okresu"
+
     suma = sum(wartosci_pom)
     ilosc = len(wartosci_pom)
     f.close()
     return str(round(suma / ilosc, 2)) + " mm/Hg"
 
 
-def standard_deviation_of_n_last_measurements(n: int) -> str:
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+def standard_deviation_of_chosen_day_and_month_and_year(data: str) -> str:
+    f = open('baza.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     wartosci_pom = []
     wyp = []
-    for line in range(len(wiersze) - 1, -1, -1):
+    for line in range(len(wiersze)):
         pom = wiersze[line]
         wyp.append(pom.split(','))
-        wartosci_pom.append(int(wyp[0][2][15:18]))
+        if data == wyp[0][0][6:17]:
+            wartosci_pom.append(int(wyp[0][2][15:18]))
         del wyp[0]
-    for i in range(len(wiersze) - n):
-        del wartosci_pom[i + n]
+
+    if len(wartosci_pom) == 0:
+        return "Brak pomiarów z wybranego okresu"
+
+    srednia = sum(wartosci_pom) / len(wartosci_pom)
+    suma_roznic = 0
+    for elem in wartosci_pom:
+        suma_roznic = suma_roznic + (elem - srednia) ** 2                       # wyznaczenie sumy kwadratów różnic danego pomiaru od wartości średniej
+    odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)),  2)    # obliczenie pierwiastka z obliczonej powyżej sumy i zaokrąglenie jej do 2 miejsc po przecinku
+    f.close()
+    return str(odchylenie_stand) + " mm/Hg"
+
+
+def standard_deviation_of_chosen_month_and_year(data: str) -> str:
+    f = open('baza.csv', 'r', encoding=" utf -8")
+    wiersze = f.readlines()
+    wartosci_pom = []
+    wyp = []
+    for line in range(len(wiersze)):
+        pom = wiersze[line]
+        wyp.append(pom.split(','))
+        if data == wyp[0][0][6:13]:
+            wartosci_pom.append(int(wyp[0][2][15:18]))
+        del wyp[0]
+
+    if len(wartosci_pom) == 0:
+        return "Brak pomiarów z wybranego okresu"
+
     srednia = sum(wartosci_pom) / len(wartosci_pom)
     suma_roznic = 0
     for elem in wartosci_pom:
@@ -124,12 +140,16 @@ def measurments_from_chosen_day_and_month_and_year(data: str):
         if data == wyp[0][0][6:17]:         # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
             measurments_from_chosen_date.append(line)
         del wyp[0]
+
+    if len(measurments_from_chosen_date) == 0:
+        return "Brak pomiarów z wybranego okresu"
+
     f.close()
     return list_with_measurments_as_string(measurments_from_chosen_date)
 
 
 def measurments_from_chosen_month_and_year(data: str) -> str:
-    f = open('pomocniczy.csv', 'r', encoding=" utf -8")
+    f = open('baza.csv', 'r', encoding=" utf -8")
     wiersze = f.readlines()
     measurments_from_chosen_date = []
     wyp = []
@@ -139,6 +159,10 @@ def measurments_from_chosen_month_and_year(data: str) -> str:
         if data == wyp[0][0][6:13]:         # porównanie czy przekazany parametr zgadza się z datą danego wpisu w bazie
             measurments_from_chosen_date.append(line)
         del wyp[0]
+
+    if len(measurments_from_chosen_date) == 0:
+        return "Brak pomiarów z wybranego okresu"
+
     f.close()
     return list_with_measurments_as_string(measurments_from_chosen_date)
 
@@ -149,3 +173,42 @@ def list_with_measurments_as_string(measurments_list: List[str]) -> str:
         list_as_string += measurment
     return list_as_string
 
+#
+# def average_of_n_measurements(n: int) -> str:
+#     f = open('baza.csv', 'r', encoding=" utf -8")     # otwarcie pliku do odczytu
+#     wiersze = f.readlines()                                 # lista zawierająca kolejne wiersze z naszej bazy
+#     wartosci_pom = []                                       # lista do której będą trafiały wartości poziomu cukru
+#     wyp = []                                                # lista pomocnicza do wypakowania wpisu
+#     for line in range(len(wiersze) - 1, -1, -1):
+#         pom = wiersze[line]                                 # wypakowanie danego wiersza do zmiennej pomocniczej a
+#         wyp.append(pom.split(','))       # podział ze względu na przecinki w wpisie i wpisanie do listy pomocniczej wyp
+#         wartosci_pom.append(
+#             int(wyp[0][2][15:18]))                          # sklejenie odpowiednich danych wraz z konwersją na int
+#         del wyp[0]
+#     for i in range(len(wiersze) - n):
+#         del wartosci_pom[i + n]                            # usunięcie niepotrzebnych pomiarów
+#     suma = sum(wartosci_pom)
+#     ilosc = len(wartosci_pom)
+#     f.close()
+#     return str(round(suma / ilosc, 2)) + " mm/Hg"
+#
+#
+# def standard_deviation_of_n_last_measurements(n: int) -> str:
+#     f = open('baza.csv', 'r', encoding=" utf -8")
+#     wiersze = f.readlines()
+#     wartosci_pom = []
+#     wyp = []
+#     for line in range(len(wiersze) - 1, -1, -1):
+#         pom = wiersze[line]
+#         wyp.append(pom.split(','))
+#         wartosci_pom.append(int(wyp[0][2][15:18]))
+#         del wyp[0]
+#     for i in range(len(wiersze) - n):
+#         del wartosci_pom[i + n]
+#     srednia = sum(wartosci_pom) / len(wartosci_pom)
+#     suma_roznic = 0
+#     for elem in wartosci_pom:
+#         suma_roznic = suma_roznic + (elem - srednia) ** 2                       # wyznaczenie sumy kwadratów różnic danego pomiaru od wartości średniej
+#     odchylenie_stand = round(math.sqrt(suma_roznic / len(wartosci_pom)),  2)    # obliczenie pierwiastka z obliczonej powyżej sumy i zaokrąglenie jej do 2 miejsc po przecinku
+#     f.close()
+#     return str(odchylenie_stand) + " mm/Hg"

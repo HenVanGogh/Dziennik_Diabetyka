@@ -7,7 +7,7 @@ Pytają go znajomi, za co się przebrał.
 - A za łoscypka.
 - A jak to, baco, za oscypka?
 - A siadne se w kąciku i bede śmierdział.;
-True
+False
 Na drzewie siedzi wróbel, przylatuje wrona, Wróbel pyta:
 - Co ty jesteś za ptak?
 Ona odpowiada:
@@ -29,13 +29,13 @@ Bo chciał mieć czystą drogę ucieczki;
 False
 Dlaczego blondynka otwiera jogurt w sklepie?
 Bo na opakowaniu jest napisane "tu otwierać";
-True
+False
 Żona pyta się męża czy płazy są głupie a mąż odpowiada:
 - Tak żabciu;
 False
 Co robi traktor u fryzjera?
 warkocze;
-True
+False
 Blondynka grabiła liście dlaczego złamała rękę?
 Bo spadła z drzewa.;
 False
@@ -96,7 +96,7 @@ False
 Przychodzi baba do lekarza. Panie doktorze jestem chora na skleroze.
 - Od kiedy?
 - Co od kiedy?;
-True
+False
 Rozmowa o pracę:
 - Jakie są pańskie główne słabości?
 - Daję semantycznie poprawne, ale nie mające praktycznego zastosowania odpowiedzi.
