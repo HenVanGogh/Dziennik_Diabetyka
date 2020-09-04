@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+Dziennik_diabetyka/credentials.json
+Dziennik_diabetyka/file_name.txt
+Dziennik_diabetyka/token.pickle
