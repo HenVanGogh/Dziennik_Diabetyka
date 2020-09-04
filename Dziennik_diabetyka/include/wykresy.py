@@ -173,7 +173,7 @@ def list_with_measurments_as_string(measurments_list: List[str]) -> str:
         list_as_string += measurment
     return list_as_string
 
-#
+
 # def average_of_n_measurements(n: int) -> str:
 #     f = open('baza.csv', 'r', encoding=" utf -8")     # otwarcie pliku do odczytu
 #     wiersze = f.readlines()                                 # lista zawierająca kolejne wiersze z naszej bazy

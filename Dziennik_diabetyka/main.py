@@ -88,7 +88,7 @@ class WidgetGallery(QDialog):
         os.system("python google_synch.py r")
 
     def search(self):
-        if int(self.textbox_month.text()) < 9:
+        if int(self.textbox_month.text()) < 10:
             year_and_month = self.textbox_year.text() + "-0" + self.textbox_month.text()
         else:
             year_and_month = self.textbox_year.text() + "-" + self.textbox_month.text()
@@ -97,15 +97,20 @@ class WidgetGallery(QDialog):
             print(measurments_from_chosen_month_and_year(year_and_month))
             self.textbox_found_measurments.setText(measurments_from_chosen_month_and_year(year_and_month))
         else:
-            print(measurments_from_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day.text()))
+            if int(self.textbox_day.text()) < 10:
+                day = "-0" + self.textbox_day.text()
+            else:
+                day = "-" + self.textbox_day.text()
+
+            print(measurments_from_chosen_day_and_month_and_year(year_and_month + day))
             self.textbox_found_measurments.setText(
-                measurments_from_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day.text()))
+                measurments_from_chosen_day_and_month_and_year(year_and_month + day))
 
     def draw_graph(self):
         graph_of_last_30_measurments()
 
     def average_and_standard_deviation(self):
-        if int(self.textbox_month_stats.text()) < 9:
+        if int(self.textbox_month_stats.text()) < 10:
             year_and_month = self.textbox_year_stats.text() + "-0" + self.textbox_month_stats.text()
         else:
             year_and_month = self.textbox_year_stats.text() + "-" + self.textbox_month_stats.text()
@@ -114,10 +119,15 @@ class WidgetGallery(QDialog):
             self.textbox_average.setText(average_of_chosen_month_and_year(year_and_month))
             self.textbox_standard_deviation.setText(standard_deviation_of_chosen_month_and_year(year_and_month))
         else:
+            if int(self.textbox_day_stats.text()) < 10:
+                day = "-0" + self.textbox_day_stats.text()
+            else:
+                day = "-" + self.textbox_day_stats.text()
+
             self.textbox_average.setText(
-                average_of_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day_stats.text()))
+                average_of_chosen_day_and_month_and_year(year_and_month + day))
             self.textbox_standard_deviation.setText(
-                standard_deviation_of_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day_stats.text()))
+                standard_deviation_of_chosen_day_and_month_and_year(year_and_month + day))
 
     def createAddMeasurmentGroupBox(self):
         layout = QVBoxLayout()
