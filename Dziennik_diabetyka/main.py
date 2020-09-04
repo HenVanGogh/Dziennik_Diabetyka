@@ -94,8 +94,10 @@ class WidgetGallery(QDialog):
             year_and_month = self.textbox_year.text() + "-" + self.textbox_month.text()
 
         if self.textbox_day.text() is "":
+            print(measurments_from_chosen_month_and_year(year_and_month))
             self.textbox_found_measurments.setText(measurments_from_chosen_month_and_year(year_and_month))
         else:
+            print(measurments_from_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day.text()))
             self.textbox_found_measurments.setText(
                 measurments_from_chosen_day_and_month_and_year(year_and_month + "-" + self.textbox_day.text()))
 
