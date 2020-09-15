@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="874185fd-a3df-45fa-92e4-d180d0ecc783" name="Default Changelist" comment="" />
+    <list default="true" id="874185fd-a3df-45fa-92e4-d180d0ecc783" name="Default Changelist" comment="Final Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/Dziennik_Diabetyka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Dziennik_Diabetyka.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Guziki.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_1.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_10.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_3.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_5.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_6.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_7.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_8.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprawozdania_ze_spotkań/Spotkanie_9.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google_synch.py" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -18,7 +42,94 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Dziennik_diabetyka" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Dziennik_Diabetyka" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dziennik_diabetyka" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dziennik_diabetyka/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for dziennik_test.MyTestCase.test_pojedynczy_wpis" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Dziennik_Diabetyka" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dziennik_diabetyka/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;dziennik_test.MyTestCase.test_pojedynczy_wpis&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in dziennik_test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Dziennik_Diabetyka" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dziennik_diabetyka/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Dziennik_diabetyka/test/dziennik_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_statystyka.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Dziennik_Diabetyka" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dziennik_diabetyka/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Dziennik_diabetyka/test/test_statystyka.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Unittests in test_statystyka.py" />
+        <item itemvalue="Python tests.Unittests in dziennik_test.py" />
+        <item itemvalue="Python tests.Unittests for dziennik_test.MyTestCase.test_pojedynczy_wpis" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -31,7 +142,32 @@
       <option name="presentableId" value="Default" />
       <updated>1593111123549</updated>
     </task>
+    <task id="LOCAL-00001" summary="Final Commit">
+      <created>1600200390698</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600200390698</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Final Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593111143025">
