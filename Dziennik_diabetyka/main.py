@@ -8,7 +8,8 @@ from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog, QGridL
                              QLabel, QLineEdit, QPushButton, QSizePolicy, QStyleFactory,
                              QTableWidget, QTabWidget, QVBoxLayout, QWidget, QTextBrowser)
 import os
-
+import csv
+import datetime
 
 class WidgetGallery(QDialog):
     def __init__(self, parent=None):
@@ -59,8 +60,8 @@ class WidgetGallery(QDialog):
         main_layout = QGridLayout()
         main_layout.addWidget(self.AddMeasurmentGroupBox, 0, 0)
         main_layout.addWidget(self.SearchingGroupBox, 1, 0)
-        main_layout.addWidget(self.StatisticsGroupBox, 2, 0)
-        main_layout.addWidget(self.JokesGroupBox, 3, 0)
+        main_layout.addWidget(self.StatisticsGroupBox, 0, 1)
+        main_layout.addWidget(self.JokesGroupBox, 1, 1)
         self.setLayout(main_layout)
 
         self.setWindowTitle("Dziennik")
@@ -82,6 +83,16 @@ class WidgetGallery(QDialog):
     def add_sugar(self):
         dodaj_wpis(int(self.textbox_measurment.text()))
         os.system("python google_synch.py w " + str(self.textbox_measurment.text()))
+
+
+        with open('dziennik.csv', mode='a', newline='') as csv_file:
+            writer = csv.writer(csv_file, delimiter=',')
+            var = (str(datetime.datetime.today()).split()[0].replace("-",",") + "," + self.textbox_measurment.text())
+            var = var.split(",")
+            var[1] = var[1].lstrip('0')
+
+            writer.writerow(var)
+
         self.textbox_measurment.clear()
 
     def synch_up(self):
@@ -203,6 +214,6 @@ if __name__ == '__main__':
 
     app = QApplication(sys.argv)
     gallery = WidgetGallery()
-    gallery.resize(450, 250)
+    gallery.resize(950, 450)
     gallery.show()
     sys.exit(app.exec_())

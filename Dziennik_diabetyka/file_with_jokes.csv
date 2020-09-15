@@ -13,14 +13,14 @@ Na drzewie siedzi wróbel, przylatuje wrona, Wróbel pyta:
 Ona odpowiada:
 - Wrona, a ty?
 - Ja to jestem orzeł, tylko trochę chorowałem!;
-True
+False
 Żona do męża:
 - Wybieraj, piwo, albo ja!
 - Ile tego piwa?;
 False
 Jak nazywają się dwa takie same drzewa?
 - klony;
-True
+False
 Co mówi kabel do kabla?
 - bądźmy w kontakcie;
 True
@@ -41,7 +41,7 @@ Bo spadła z drzewa.;
 True
 Jak nazywa się kot który leci?
 Kotlecik;
-True
+False
 Do czego prowadzą dyskusje o filozofii z blondynkami?
 Do Nietzschego.;
 True
@@ -60,7 +60,7 @@ I nagle trzeci mężczyzna wybiega z kościoła i mówi:
 True
 Dlaczego wulkan dostał piątke na lekcji?
 Bo jest aktywny:);
-False
+True
 Facet stoi na plaży i łowi rybki. Nagle złowił złotą rybkę. Złota rybka mówi:
 - Wypuść mnie a spełnię twoje życzenie.
 - Dobra, chcę mieć autostrade stąd na Wyspy Kanaryjskie.
@@ -73,13 +73,13 @@ Babcia pyta Jasia :
 - Żeby podlać kwiatki.
 - Ale one są sztuczne!!!
 - Dlatego mam pustą konewkę.;
-True
+False
 Dla czego blondynka siedzi na zegarze?
 Bo chce być na czasie;
-True
+False
 Jak się nazywa przesolona firanka?
 - Zasłona;
-True
+False
 Jasnowidz do jasnowidza:
 - Wiesz co?
 - Wiem.;
@@ -92,7 +92,7 @@ Fiołek;
 True
 Jak nazywa się rosyjskie małżeństwo?
 Związek radziecki;
-True
+False
 Przychodzi baba do lekarza. Panie doktorze jestem chora na skleroze.
 - Od kiedy?
 - Co od kiedy?;
@@ -105,7 +105,7 @@ Rozmowa o pracę:
 True
 Jak nazywa się wymarła rasa konia?
 - Koniec;
-False
+True
 Co mówi wkurzony ogrodnik do kumpla?
 - Przesadziłeś;
 False
@@ -117,12 +117,12 @@ Poszedł, zadzwonił. W drzwiach pojawiła się najpiękniejsza kobieta jaką wi
 True
 Jak nazywa się telefon który wystrugał Dżepetto?
 Pinokia;
-False
+True
 Wykład na Wydziale Polonistyki:
 - W języku polskim można zaprzeczyć przez zaprzeczenie, podwójne zaprzeczenie i potwierdzenie. Nie da się natomiast zaprzeczyć przez podwójne potwierdzenie.
 Głos z sali:
 - Dobra, dobra...;
-True
+False
 Żona pyta męża rano przy śniadaniu:
 - Dlaczego trzymasz gazetę w lodówce?
 Mąż odpowiada:
